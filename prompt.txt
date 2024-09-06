@@ -1,0 +1,30 @@
+**Task:** Extract capital expenditure (CapEx) from the given **Earnings Call Transcript**.
+
+**Instructions:**
+
+1. **Identify Company, Quarter, and Year:**
+   * **Prompt:** "Extract the company name, quarter, and year from the transcript."
+
+2. **Identify CapEx:**
+   * **Direct Mention:** If "capital expenditure" is explicitly mentioned, extract the amount.
+   * **Indirect Clues:** If not directly mentioned, search for:
+     * **Capital Investments or Projects:** "new factories," "plant expansions," "research and development," "acquisitions," "growth initiatives," "strategic investments," "capital-intensive projects."
+     * **Cash Flow Statements:** Reference the company's cash flow statement for "Investing Activities" and look for "Property, Plant, and Equipment" or "Acquisitions."
+     * **Financial Metrics:** "free cash flow," "debt levels," "return on investment."
+     * **Analyst Questions:** Questions about "capital allocation," "investment plans," "long-term growth strategies."
+     * **Industry Trends:** Consider the industry's capital intensity.
+
+3. **Convert and Format:**
+   * Convert CapEx to billions (e.g., $5497 million = $5.497 billion).
+   * Return a JSON object in the following format:
+     ```json
+     {{
+       "company": "abc",
+       "quarter": "2",
+       "year": "2024",
+       "capex": "5.947"
+     }}
+     ```
+
+**Earnings Call Transcript:**
+{earning_call_transcript}
